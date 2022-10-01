@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+    <ul id="list_btn">
+        <li><a href="../images/room_01.jpg">room01</a></li>
+        <li><a href="../images/room_02.jpg">room02</a></li>
+        <li><a href="../images/room_03.jpg">room03</a></li>
+        <li><a href="../images/room_04.jpg">room04</a></li>
+    </ul>
+    <p id="back_pic">
+        <img src="../images/room_05.jpg" alt="room05">
+    </p>
+
+    <script>
+        $(function(){
+            $('ul>li>a').dblclick(function(){
+                var pic = $(this).attr('href');
+                $('p > img').attr('src', pic);
+                // return false; 위치가 올바르지 않다
+            }).click(function(){
+                return false; //요롷게
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+    <button>li 요소를 추가</button>
+    <ul id="linkBtn">
+        <li><a href="../images/flower.jpg">꽃</a></li>
+        <li><a href="../images/sea.jpg">바다</a></li>
+        <li><a href="../images/Jellyfish.jpg">해파리</a></li>
+    </ul>
+    <p><img src="../images/flower.jpg" alt="꽃"></p>
+    <script>
+        $(function(){
+            $('li > a').on('click',function(){
+                var pic = $(this).attr('href');
+                $('p > img').attr('src', pic);
+                return false;
+            });
+            $(function(){
+                $('button').on('click', function(){
+                    $('ul').append('<li><a href="../images/building.jpg">빌딩</a></li>');
+                });
+                //추가는되지만 사진이 이동만하는 문제발생
+            });
+        });
+    </script>
+</body>
+</html>

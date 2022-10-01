@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <script src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/modal.css">
+
+</head>
+<body>
+    <ul>
+        <li><a href="../images/img_01.jpg" class="modal" ><img src="../images/img_01.jpg" alt="01"></a></li>
+        <li><a href="../images/img_02.jpg" class="modal"><img src="../images/img_02.jpg" alt="02"></a></li>
+        <li><a href="../images/img_03.jpg" class="modal"><img src="../images/img_03.jpg" alt="03"></a></li>
+        <li><a href="../images/img_04.jpg" class="modal"><img src="../images/img_04.jpg" alt="04"></a></li>
+        <li><a href="../images/img_05.jpg" class="modal"><img src="../images/img_05.jpg" alt="05"></a></li>
+        <li><a href="../images/img_06.jpg" class="modal"><img src="../images/img_06.jpg" alt="06"></a></li>
+        <li><a href="../images/img_07.jpg" class="modal"><img src="../images/img_07.jpg" alt="07"></a></li>
+        <li><a href="../images/img_08.jpg" class="modal"><img src="../images/img_08.jpg" alt="08"></a></li>
+    </ul>
+
+    <script>
+        $(function(){
+            $('body').append('<div id="back"></div><div id="main"></div>');
+            $('ul > li > a.modal').on('click', function(){
+                var pic = $(this).attr('href');
+                $('#back').show();
+                $('#main').show().html('<img src = "'+pic+'">');
+
+                var picWidth = $('#main').width()/2;
+                var pciHeight = $('#main').height()/2;
+
+                $('#main').css({
+                    marginLeft : '-' + picWidth + 'px',
+                    marginTop : '-' + pciHeight + 'px'
+                });
+                return false;
+            })
+
+            $('#back').on('click', function(){
+                $('#back').hide();
+                $('#main').hide();
+            })
+        })
+    </script>
+</body>
+</html>
